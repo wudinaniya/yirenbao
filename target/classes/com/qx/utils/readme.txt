@@ -1,0 +1,1 @@
+ExtendJedis需要在applicationContext-resdis.xml中去配置

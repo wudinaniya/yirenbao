@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qx.mapper.UserMapper">
+	
+	<insert id="addUser" parameterType="com.qx.pojo.User">
+		<!-- 是否需要获取插入后的主键id -->
+		<selectKey keyProperty="uid" resultType="integer" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+		insert into users (unickname,upassword,uphonenumber,ureferrer,uregistdate,uheadimg,ulastip,ulasttime)
+		values (#{unickname},#{upassword},#{uphonenumber},#{ureferrer},#{uregistdate},#{uheadimg},#{ulastip},#{ulasttime})
+	</insert>
+</mapper>
